@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: List 
         run: | 
-          echo "ForwardAgent=yes" >> /etc/ssh/ssh_config
+          sudo echo "ForwardAgent=yes" >> /etc/ssh/ssh_config
           ls -a /etc/ssh
           sudo service ssh restart
       - name: Build & Deploy
@@ -25,7 +25,7 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} 
-#          '
-#          echo "Kostya Github Hello!" > /home/kostya/Kostya_Github_Hello.txt
-#          git clone git@github.com:KoTruebin/GitHubActions
-#          '
+          '
+          echo "Kostya Github Hello!" > /home/kostya/Kostya_Github_Hello.txt
+          git clone git@github.com:KoTruebin/GitHubActions
+          '
