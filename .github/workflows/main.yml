@@ -13,9 +13,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: List 
         run: | 
-          sudo echo "ForwardAgent=yes" >> /etc/ssh/ssh_config
           ls -a /etc/ssh
           sudo service ssh restart
+#          sudo echo "ForwardAgent=yes" >> /etc/ssh/ssh_config
+          
       - name: Build & Deploy
         env:
             PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
